@@ -5,7 +5,7 @@
             watchState: true,
         }" :pagination="{
             clickable: true,
-        }" :autoplay="{ delay: 5000 }" :modules="modules">
+        }" :autoplay="{ delay: 5000 }" :modules="modules" @slideChange="onSlideChange">
             <SwiperSlide>
                 <div class="relative justify-center --- lg:flex md:flex hidden">
                     <div class="absolute top-28 left-2/4 -translate-x-2/4 z-50 text-center">
@@ -27,7 +27,7 @@
             </SwiperSlide>
             <SwiperSlide>
                 <div class="relative justify-center --- lg:flex md:flex hidden">
-                    <div class="absolute top-2/4 left-36 -translate-y-2/4 z-50 text-left max-w-[26rem]">
+                    <div class="absolute top-2/4 left-36 -translate-y-2/4 z-50 text-left max-w-80">
                         <p class="font-bold text-5xl">Galaxy S24 Series</p>
 
                         <p class="mt-8 text-xl">Ưu đãi đến 6 triệu đồng.</p>
@@ -47,8 +47,8 @@
             </SwiperSlide>
             <SwiperSlide>
                 <div class="relative justify-center --- lg:flex md:flex hidden">
-                    <div class="absolute top-2/4 left-36 -translate-y-2/4 z-50 text-left max-w-[26rem]">
-                        <p class="font-bold text-5xl">Galaxy S24 Series</p>
+                    <div class="absolute top-2/4 left-36 -translate-y-2/4 z-50 text-left max-w-80">
+                        <p class="font-bold text-5xl">Gửi gắm deal thương. Tặng mẹ phi thường.</p>
 
                         <p class="mt-8 text-xl">Ưu đãi đến 6 triệu đồng.</p>
 
@@ -67,11 +67,10 @@
     </div>
 </template>
 <script>
-import { Swiper, SwiperSlide } from "swiper/vue";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/vue";
 import { Pagination, Autoplay } from 'swiper/modules';
 
 import "swiper/css"
-// import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 export default {
@@ -79,10 +78,22 @@ export default {
         Swiper,
         SwiperSlide
     },
+    data() {
+        return {
+            slideActive: 0
+        }
+    },
     setup() {
         return {
             modules: [Pagination, Autoplay],
         };
     },
+    methods: {
+        onSlideChange(swiper) {
+           this.slideActive = swiper.activeIndex;
+            console.log(this.slideActive);
+
+        }
+    }
 }
 </script>
