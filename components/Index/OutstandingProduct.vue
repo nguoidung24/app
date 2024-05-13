@@ -36,7 +36,7 @@
                         </div>
 
                         <NuxtLink to="/"
-                            class="absolute -bottom-full peer-hover:bottom-10 hover:bottom-10 left-2/4 bg-black text-white lg:px-10 px-5 rounded-3xl lg:w-fit lg:text-base w-[70%] text-[13px] text-center duration-500 py-3 -translate-x-2/4">
+                            class="absolute font-mono -bottom-full peer-hover:bottom-10 hover:bottom-10 left-2/4 bg-black text-white lg:px-10 px-5 rounded-3xl lg:w-fit lg:text-base w-[70%] text-[13px] text-center duration-500 py-3 -translate-x-2/4">
                             {{ item.button }}
                         </NuxtLink>
                     </figure>
@@ -54,7 +54,7 @@
                             </div>
 
                             <NuxtLink to="/"
-                                class="absolute -bottom-full peer-hover:bottom-10 hover:bottom-10 left-2/4 bg-black text-white lg:px-10 px-5 rounded-3xl lg:w-fit lg:text-base w-[70%] text-[13px] text-center duration-500 py-3 -translate-x-2/4">
+                                class="absolute font-mono -bottom-full peer-hover:bottom-10 hover:bottom-10 left-2/4 bg-black text-white lg:px-10 px-5 rounded-3xl lg:w-fit lg:text-base w-[70%] text-[13px] text-center duration-500 py-3 -translate-x-2/4">
                                 {{ item.button }}
                             </NuxtLink>
                         </figure>
