@@ -118,6 +118,6 @@ export default defineNuxtComponent({
 .swiper-button-prev::after,
 .swiper-button-next::after {
     color: rgb(54, 52, 52);
-    font-size: 15px
+    font-size: 10px
 }
 </style>
