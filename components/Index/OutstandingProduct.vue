@@ -36,7 +36,7 @@
                         </div>
 
                         <NuxtLink to="/"
-                            class="absolute -bottom-full peer-hover:bottom-10 hover:bottom-10 left-2/4 bg-black text-white px-10 rounded-3xl lg:w-fit text-base w-[70%] text-sm text-center duration-500 py-3 -translate-x-2/4">
+                            class="absolute -bottom-full peer-hover:bottom-10 hover:bottom-10 left-2/4 bg-black text-white lg:px-10 px-5 rounded-3xl lg:w-fit lg:text-base w-[70%] text-[13px] text-center duration-500 py-3 -translate-x-2/4">
                             {{ item.button }}
                         </NuxtLink>
                     </figure>
@@ -47,14 +47,14 @@
                         <figure class="relative ">
                             <img :src="value" alt="">
                             <p
-                                class="absolute lg:bottom-10  bottom-2 text-center font-bold lg:text-sm md:text-sm text-[13px] w-full px-10 left-2/4 -translate-x-2/4">
+                                class="absolute lg:bottom-10  bottom-2 text-center font-bold lg:text-sm md:text-sm text-[12.5px] w-full px-10 left-2/4 -translate-x-2/4">
                                 {{ item.smaillText[key] }}
                             </p>
                             <div class="w-full h-full peer absolute top-0 left-0">
                             </div>
 
                             <NuxtLink to="/"
-                                class="absolute -bottom-full peer-hover:bottom-10 hover:bottom-10 left-2/4 bg-black text-white px-10 rounded-3xl lg:w-fit text-base w-[70%] text-sm text-center duration-500 py-3 -translate-x-2/4">
+                                class="absolute -bottom-full peer-hover:bottom-10 hover:bottom-10 left-2/4 bg-black text-white lg:px-10 px-5 rounded-3xl lg:w-fit lg:text-base w-[70%] text-[13px] text-center duration-500 py-3 -translate-x-2/4">
                                 {{ item.button }}
                             </NuxtLink>
                         </figure>
@@ -173,9 +173,13 @@ export default defineNuxtComponent({
 </script>
 
 <style>
-.swiper-button-prev::after,
-.swiper-button-next::after {
-    color: rgb(54, 52, 52);
-    font-size: 10px
+@media (min-width: 0px) {
+
+    /* các CSS hiệu lực khi màn hình từ 1200px trở đi*/
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        color: rgb(54, 52, 52) !important;
+        font-size: 10px !important;
+    }
 }
 </style>
