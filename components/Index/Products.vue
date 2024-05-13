@@ -1,7 +1,19 @@
 <template>
     <div class="grid lg:grid-cols-4 grid-cols-2 gap-x-5">
-        <div v-for="(item, index) in [0, 0, 0, 0, 0] " key="index">
-            <div class="mt-5">
+        <div v-for="(item, index) in [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] " key="index">
+            <div class="mt-5" v-motion :initial="{
+                opacity: 0,
+                x:-100
+            }" :visible="{
+                opacity: 1,
+                x:0,
+                transition: {
+                    duration: 500,
+                    type: 'tween',
+                    ease: 'easeOut',
+                }
+
+            }" :delay="index < 4 ? index * 150 : index % 4 * 150">
                 <div class=" rounded overflow-hidden shadow-lg">
                     <img class="w-full" src="https://v1.tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains">
                     <div class="px-6 py-4">

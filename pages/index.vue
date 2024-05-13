@@ -21,7 +21,7 @@
                 </span>
             </p>
             <IndexHotProduct />
-            <!-- <IndexProducts /> -->
+            <IndexProducts />
         </div>
         <FooterComponent />
     </div>

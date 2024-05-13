@@ -25,7 +25,7 @@
 					<figure class="relative overflow-hidden">
 						<img class="w-full peer" :src="item.thumbnail" alt="Sunset in the mountains">
 						<button
-							class="absolute font-mono duration-300 peer-hover:bottom-3 hover:bottom-3 hover:bg-gray-700 text-sm bg-black text-white px-5 lg:text-base text-[13px] rounded-2xl py-2 -bottom-full left-2/4 -translate-x-2/4">
+							class="absolute font-mono duration-300 peer-hover:bottom-3 hover:bottom-3 hover:bg-gray-700 text-sm bg-black text-white px-3 lg:text-base text-[12.5px] rounded-2xl py-2 -bottom-full left-2/4 -translate-x-2/4">
 							{{ item.button }}
 						</button>
 					</figure>
