@@ -1,5 +1,5 @@
 <template>
-    <div class="grid lg:grid-cols-4 grid-cols-2 gap-x-5">
+    <div class="grid lg:grid-cols-4 grid-cols-2 gap-x-5 px-5">
         <div v-for="(item, index) in [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] " key="index">
             <div class="mt-5" v-motion :initial="{
                 opacity: 0,
@@ -21,7 +21,6 @@
                         <p class="text-gray-700 text-base">
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores
                             et
-                            perferendis eaque, exercitationem praesentium nihil.
                         </p>
                     </div>
                     <div class="px-6 pt-4 pb-2">

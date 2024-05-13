@@ -1,6 +1,14 @@
 <template>
-    <div>
-        <HeaderComponent />
+    <div v-motion :initial="{
+        opacity: 0,
+        y: 100,
+    }" :enter="{
+        opacity: 1,
+        y: 0,
+    }" :leave="{
+                y: -100,
+                opacity: 0,
+            }">
         <div class="lg:px-20 px-0">
             <IndexSlide />
             <p class="m-14 mb-5 text-center font-bold  text-4xl">Sản Phẩm Nổi Bật</p>
@@ -10,7 +18,8 @@
                 <span class="text-xl font-bold ">Đặc quyền của thegioidilac.shop</span>
                 <span class="text-lg  ms-3 block lg:inline-block">
                     <NuxtLink to="/"
-                        class="flex hover:cursor-pointer hover:underline font-semibold text-base justify-center items-center">Tìm
+                        class="flex hover:cursor-pointer hover:underline font-semibold text-base justify-center items-center">
+                        Tìm
                         hiểu thêm
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-caret-right" viewBox="0 0 16 16">
@@ -21,6 +30,7 @@
                 </span>
             </p>
             <IndexHotProduct />
+            <IndexBigSlide />
             <IndexProducts />
         </div>
         <FooterComponent />

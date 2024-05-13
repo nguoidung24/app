@@ -24,8 +24,16 @@
 
         </div>
         <div v-for="(item, index) in dataTab" :key="index">
-            <div v-if="tabActive == index"
-                class="relative grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 p-6 gap-3 mb-2">
+            <div v-if="tabActive == index" v-motion :initial="{
+                opacity: 0,
+                y: 100,
+            }" :enter="{
+    opacity: 1,
+    y: 0,
+}" :leave="{
+    y: -100,
+    opacity: 0,
+}" class="relative grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 p-6 gap-3 mb-2">
                 <div class='rounded-3xl text-black text-center overflow-hidden'>
                     <figure class="relative">
                         <img :src="item.bigImage" alt="">
@@ -179,7 +187,7 @@ export default defineNuxtComponent({
     .swiper-button-prev::after,
     .swiper-button-next::after {
         color: rgb(54, 52, 52) !important;
-        font-size: 10px !important;
+        font-size: 15px !important;
     }
 }
 </style>
