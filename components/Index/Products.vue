@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-4 gap-x-5">
+    <div class="grid lg:grid-cols-4 grid-cols-2 gap-x-5">
         <div v-for="(item, index) in [0, 0, 0, 0, 0] " key="index">
             <div class="mt-5">
                 <div class=" rounded overflow-hidden shadow-lg">
