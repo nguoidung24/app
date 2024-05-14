@@ -29,4 +29,5 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  plugins: ["~/plugins/oh-vue-icons.js"],
 })

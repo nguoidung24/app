@@ -14,7 +14,7 @@
                 }
 
             }" :delay="index < 5 ? index * 150 : index % 5 * 150">
-                <div class=" rounded overflow-hidden shadow-lg py-2">
+                <div class=" rounded-2xl overflow-hidden shadow-lg py-2">
                     <figure class="">
                         <img class="w-full"
                         src="https://images.samsung.com/is/image/samsung/p6pim/vn/sm-a556elbaxxv/gallery/vn-galaxy-a55-5g-sm-a556-sm-a556elbaxxv-thumb-540189536?$216_216_PNG$"
@@ -26,12 +26,12 @@
                         <p class="text-gray-700 text-sm font-sans text-center">
                             <span class="font-semibold">Màu sắc:</span> kem sáng tạo
                         </p>
-                        <p class="text-center pt-2 font-semibold" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                        <p class="text-center py-3 font-semibold" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                             21.35.000 <sup>đ</sup>
                         </p>
                     </div>
                     <div class="px-3 text-center pb-4">
-                        <button class="font-mono bg-black text-white px-4 py-2 rounded-3xl">
+                        <button class="font-mono bg-black text-white w-[68%] py-1 rounded-3xl">
                             Mua Ngay
                         </button>
                     </div>

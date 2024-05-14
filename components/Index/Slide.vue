@@ -6,7 +6,7 @@
             clickable: true,
         }" :autoplay="{
             delay: 4848
-        }" :modules="modules" @slideChange="onSlideChange">
+        }" :modules="modules" @slideChange="onSlideChange" class="slider_1">
             <SwiperSlide v-for="(item, index) in dataSlide">
                 <IndexSlideTextTop v-if="item.type == 'text-top'" :data="item" />
                 <IndexSlideVideo v-if="item.type == 'video'" :data="item" />
@@ -17,7 +17,7 @@
 </template>
 
 <style>
-.swiper-pagination{
+.slider_1 .swiper-pagination{
     position: absolute !important;
     width: fit-content !important;
     left: 50% !important;
@@ -26,10 +26,10 @@
     padding: 0px 10px 2px 10px !important;
     border-radius:30px;
 }
-.swiper-pagination span{
+.slider_1 .swiper-pagination span{
    margin: 0 10px !important;
 }
-.swiper-pagination-bullet-active{
+.slider_1 .swiper-pagination-bullet-active{
     background-color: #535353 !important;
 }
 </style>
