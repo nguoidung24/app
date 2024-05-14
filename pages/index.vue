@@ -6,14 +6,17 @@
         opacity: 1,
         y: 0,
     }" :leave="{
-                y: -100,
-                opacity: 0,
-            }">
+        y: -100,
+        opacity: 0,
+    }">
+
+        <!-- ================================== START ================================== -->
         <div class="lg:px-20 px-0">
             <IndexSlide />
-            <p class="m-14 mb-5 text-center font-bold  text-4xl">Sản Phẩm Nổi Bật</p>
+            <p class="m-14 mb-5 text-center font-bold  text-4xl">
+                Sản Phẩm Nổi Bật
+            </p>
             <IndexOutstandingProduct />
-
             <p class="mt-14 px-5 lg:text-left text-center">
                 <span class="text-xl font-bold ">Đặc quyền của thegioidilac.shop</span>
                 <span class="text-lg  ms-3 block lg:inline-block">
@@ -31,9 +34,13 @@
             </p>
             <IndexHotProduct />
             <IndexBigSlide />
-            <IndexProducts />
+            <p class="m-14 mb-5 text-center font-bold  text-4xl"
+                style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                Gợi ý dành cho bạn
+            </p>
+            <IndexSuggestedProducts />
         </div>
-        <FooterComponent />
+        <!-- ================================== END ================================== -->
     </div>
 </template>
 <script>

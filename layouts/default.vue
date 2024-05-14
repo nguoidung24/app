@@ -2,5 +2,6 @@
     <div>
         <HeaderComponent />
         <slot />
+        <FooterComponent />
     </div>
 </template>

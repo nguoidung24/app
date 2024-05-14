@@ -5,19 +5,19 @@
 		}" :breakpoints="{
 			'0': {
 				slidesPerView: 2,
-				spaceBetween: 20,
+				spaceBetween: 10,
 			},
 			'640': {
 				slidesPerView: 3,
-				spaceBetween: 20,
+				spaceBetween: 10,
 			},
 			'768': {
 				slidesPerView: 4,
-				spaceBetween: 40,
+				spaceBetween: 20,
 			},
 			'1024': {
 				slidesPerView: 5,
-				spaceBetween: 50,
+				spaceBetween: 20,
 			},
 		}" :modules="modules" class="">
 			<SwiperSlide v-for="(item, index) in dataSwiper" :key="index">
@@ -25,7 +25,7 @@
 					<figure class="relative overflow-hidden">
 						<img class="w-full peer" :src="item.thumbnail" alt="Sunset in the mountains">
 						<button
-							class="absolute font-mono lg:w-fit w-[70%] duration-300 peer-hover:bottom-3 hover:bottom-3 hover:bg-gray-700 text-sm bg-black text-white px-5 lg:px10 lg:text-base text-[12.5px] rounded-2xl py-2 -bottom-full left-2/4 -translate-x-2/4">
+							class="absolute font-mono lg:w-fit w-[70%] duration-300 peer-hover:bottom-3 hover:bottom-3 hover:bg-gray-700 text-sm bg-black text-white px-5 lg:text-sm text-[12.5px] rounded-2xl py-2 -bottom-full left-2/4 -translate-x-2/4">
 							{{ item.button }}
 						</button>
 					</figure>

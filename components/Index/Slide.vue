@@ -16,7 +16,23 @@
     </div>
 </template>
 
-
+<style>
+.swiper-pagination{
+    position: absolute !important;
+    width: fit-content !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border: 1px solid #747474 !important;
+    padding: 0px 10px 2px 10px !important;
+    border-radius:30px;
+}
+.swiper-pagination span{
+   margin: 0 10px !important;
+}
+.swiper-pagination-bullet-active{
+    background-color: #535353 !important;
+}
+</style>
 <!-- ============================================ JAVA SCRIPT ===================================================== -->
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
