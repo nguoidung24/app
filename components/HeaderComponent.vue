@@ -54,9 +54,9 @@ export default {
                         <button>
                             <v-icon name="hi-search" />
                         </button>
-                        <button>
+                        <NuxtLink to="/cart">
                             <v-icon name="md-shoppingcart" />
-                        </button>
+                        </NuxtLink>
                         <button>
                             <v-icon name="fa-user" scale="1.1"  />
                         </button>
