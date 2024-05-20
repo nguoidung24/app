@@ -26,7 +26,7 @@
 
         <main class="mx-auto  py-10 px-5 lg:px-32">
           <div class="border-b border-gray-200 pb-10">
-            <h1 class="text-4xl font-bold tracking-tight text-gray-900">Các sản phẩm</h1>
+            <p class="text-3xl font-bold tracking-tight text-gray-900">Các sản phẩm</p>
             <p class="mt-4 text-base text-gray-500">Danh mục "Sản phẩm"</p>
           </div>
 
