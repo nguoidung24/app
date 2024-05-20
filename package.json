@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "@vueuse/motion": "^2.1.0",
     "nuxt": "^3.11.2",
     "oh-vue-icons": "^1.0.0-rc3",
