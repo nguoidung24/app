@@ -15,7 +15,7 @@ export default {
 }
 </script>
 <template>
-    <header class=" relative px-5" style="z-index: 20;">
+    <header class=" relative lg:text-base md:text-[13px] px-5" style="z-index: 20;">
         <nav class="flex justify-between">
             <div @click="goToHome()" class="w-[100px] md:w-[150px] flex items-center my-6 hover:cursor-pointer">
                 <!-- <img src="https://i.postimg.cc/MZCBXb1K/logo.png" alt="LOGO" srcset=""> -->
@@ -37,7 +37,8 @@ export default {
                         </li>
                         <li
                             class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                            <a href="#">Courses</a>
+                            <NuxtLink to="/test">Courses</NuxtLink>
+
                         </li>
                         <li
                             class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">

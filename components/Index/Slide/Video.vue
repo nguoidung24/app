@@ -6,14 +6,14 @@
                 <p class="font-bold lg:text-5xl text-3xl">{{ data?.title }}</p>
 
                 <div class="mt-8">
-                    <p class=" lg:text-xl text-lg" v-for="(item, index) in data?.text">{{ item }}</p>
+                    <p class=" lg:text-xl text-lg" v-for="(item, index) in data?.text?.split('$tach_ra$')">{{ item }}</p>
                 </div>
                 <button class="mt-8 bg-black text-white rounded-3xl px-5 py-2 font-mono">
                     {{ data?.button }}
                 </button>
             </div>
             <video autoplay muted loop name="media">
-                <source :src="data?.image?.desktop" type="video/webm">
+                <source :src="data?.image?.split('$tach_ra$')[0]" type="video/webm">
             </video>
 
         </div>
@@ -23,7 +23,7 @@
                 <p class="font-bold text-4xl">{{ data?.title }}</p>
 
                 <div class="mt-8">
-                    <p class=" text-lg " v-for="(item, index) in data?.text">{{ item }}</p>
+                    <p class=" text-lg " v-for="(item, index) in data?.text?.split('$tach_ra$')">{{ item }}</p>
                 </div>
 
                 <button class="mt-8 bg-black text-white rounded-3xl px-5 py-2 font-mono">
@@ -31,7 +31,7 @@
                 </button>
             </div>
             <video autoplay muted loop name="media">
-                <source :src="data?.image?.mobile" type="video/webm">
+                <source :src="data?.image?.split('$tach_ra$')[1]" type="video/webm">
             </video>
         </div>
     </div>

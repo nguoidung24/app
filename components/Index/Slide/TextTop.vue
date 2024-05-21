@@ -8,7 +8,7 @@
                 <p class="font-bold lg:text-4xl text-2xl">{{ data?.title }}</p>
 
                 <div>
-                    <p class="mt-3 text-lg" v-for="(item, index ) in data?.text" key="index">{{ item }}</p>
+                    <p class="mt-3 text-lg" v-for="(item, index ) in data?.text?.split('$tach_ra$')" key="index">{{ item }}</p>
                 </div>
 
                 <button class="mt-6 bg-black text-white rounded-3xl px-5 py-2 font-mono">
@@ -16,7 +16,7 @@
                 </button>
             </div>
             <figure>
-                <img :src="data?.image?.desktop" alt="">
+                <img :src="data?.image?.split('$tach_ra$')[0]" alt="">
 
             </figure>
         </div>
@@ -28,14 +28,14 @@
                 <p class="font-bold text-2xl">{{ data?.title }}</p>
 
                 <div>
-                    <p class="mt-5 text-lg" v-for="(item, index ) in data?.text">{{ item }}</p>
+                    <p class="mt-5 text-lg" v-for="(item, index ) in data?.text?.split('$tach_ra$')">{{ item }}</p>
                 </div>
                 <button class="mt-10 bg-black text-white rounded-3xl px-5 py-2 font-mono">
                     {{ data?.button }}
                 </button>
             </div>
             <figure class="w-full">
-                <img class="w-full" :src="data?.image?.mobile" alt="">
+                <img class="w-full" :src="data?.image?.split('$tach_ra$')[1]" alt="">
             </figure>
         </div>
     </div>

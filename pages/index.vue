@@ -1,18 +1,18 @@
 <template>
-    <div v-motion :initial="{
-        opacity: 0,
-        y: 100,
-    }" :enter="{
-        opacity: 1,
-        y: 0,
-    }" :leave="{
-        y: -100,
-        opacity: 0,
-    }">
+    <div>
 
         <!-- ================================== START ================================== -->
-        <div class="lg:px-20 px-0">
-            <IndexSlide />
+        <div class="lg:px-20 px-0" v-motion :initial="{
+            opacity: 0,
+            y: 100,
+        }" :enter="{
+            opacity: 1,
+            y: 0,
+        }" :leave="{
+            y: -100,
+            opacity: 0,
+        }" v-if="!isLoading">
+            <IndexSlide :dataSlide="dataIndexSlider" />
             <p class="m-14 mb-5 text-center font-bold  text-4xl">
                 Sản Phẩm Nổi Bật
             </p>
@@ -41,6 +41,12 @@
             <IndexSuggestedProducts />
         </div>
         <!-- ================================== END ================================== -->
+        <div v-else >
+            <div class="absolute top-2/4 left-2/4 -translate-x-2/4">
+                <v-icon name="vi-file-type-ionic" class="animate-spin" scale="5"></v-icon>
+                <p class="text-center italic">Loading...</p>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -50,5 +56,16 @@ export default defineNuxtComponent({
             title: "Trang chủ"
         }
     },
+    data() {
+        return {
+            dataIndexSlider: null,
+            isLoading: true,
+        }
+    },
+    async created() {
+        const data = (await useSlider()).value;
+        this.dataIndexSlider = data.listProducts.data;
+        this.isLoading = false;
+    }
 })
 </script>
