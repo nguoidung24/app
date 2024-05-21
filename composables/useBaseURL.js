@@ -1,8 +1,8 @@
 
 export const useBaseURL = async () => {
-    const data = {
+    const dataBaseURL = {
         baseURL:"http://localhost:8008/api/",
         baseURLImage:""
     }
-    return useState('dataBaseURL', () => data)
+    return useState('dataBaseURL', () => dataBaseURL)
 }

@@ -41,7 +41,7 @@
             <IndexSuggestedProducts />
         </div>
         <!-- ================================== END ================================== -->
-        <div v-else >
+        <div v-else>
             <div class="absolute top-2/4 left-2/4 -translate-x-2/4">
                 <v-icon name="vi-file-type-ionic" class="animate-spin" scale="5"></v-icon>
                 <p class="text-center italic">Loading...</p>
@@ -58,13 +58,18 @@ export default defineNuxtComponent({
     },
     data() {
         return {
+            dataIndexOutstandingProducts:null,
             dataIndexSlider: null,
             isLoading: true,
         }
     },
     async created() {
-        const data = (await useSlider()).value;
-        this.dataIndexSlider = data.listProducts.data;
+        const dataIndexSlider = (await useSlider()).value;
+        this.dataIndexSlider = dataIndexSlider.listProducts.data;
+
+        const dataIndexOutstandingProducts = (await useOutstandingProducts()).value;
+        this.dataIndexOutstandingProducts = dataIndexOutstandingProducts.listOutstandingProducts.data
+
         this.isLoading = false;
     }
 })

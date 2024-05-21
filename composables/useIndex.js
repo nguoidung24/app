@@ -14,21 +14,21 @@ export const useSlider = async () => {
         websiteStore.setWebData({ key: 'listProducts', value: data })
     }
 
-    return useState('list', () => webData)
+    return useState('listProducts', () => webData)
 }
 
-export const useHotProducts = async () => {
+export const useOutstandingProducts = async () => {
     const BASE_URL = (await (useBaseURL())).value.baseURL
     const websiteStore = useWebsiteStore()
     const { webData } = storeToRefs(websiteStore)
     let data = null;
 
-    if (websiteStore.getWebData('listHotProducts') == null) {
+    if (websiteStore.getWebData('listOutstandingProducts') == null) {
         await fetch(BASE_URL + 'Outstanding')
             .then((response) => response.json())
             .then((response) => data = response);
-        websiteStore.setWebData({ key: 'listHotProducts', value: data })
+        websiteStore.setWebData({ key: 'listOutstandingProducts', value: data })
     }
 
-    return useState('list', () => webData)
+    return useState('listOutstandingProducts', () => webData)
 }
