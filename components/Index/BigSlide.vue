@@ -96,7 +96,7 @@
                         spaceBetween: 10,
                     },
                     '1024': {
-                        slidesPerView: 7,
+                        slidesPerView: 6,
                         spaceBetween: 10,
                     },
                 }" class="lg:*:justify-center">
@@ -118,15 +118,7 @@ import "swiper/css"
 import 'swiper/css/navigation';
 
 const dataSlide = [
-    {
-        name: "Galaxy S24 Ultra",
-        srcDesktop: "https://images.samsung.com/is/image/samsung/assets/vn/home/2024/HOME_Q5_MX-KV_1440X810_pc_default.jpg?$1440_810_JPG$",
-        srcMobile: "https://images.samsung.com/is/image/samsung/assets/vn/home/2024/HOME_Q5_MX-KV_720X1280_mo_default.jpg?$720_1280_JPG$",
-        title: "Galaxy S24 Ultra",
-        text: "Ưu đãi đến 5 triệu đồng. Thu cũ đổi mới hỗ trợ thêm đến 5 triệu đồng.",
-        button: "Mua ngay",
-        buttonLink: "/"
-    },
+    
     {
         name: "Galaxy S24 | S24+",
         srcDesktop: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/HOME_E3_MX-KV_1440x810_pc.jpg?$1440_810_JPG$",
@@ -153,7 +145,17 @@ const dataSlide = [
         text: "Ưu đãi đến 5 triệu đồng. Thu cũ đổi mới hỗ trợ thêm đến 5 triệu đồng.",
         button: "Mua ngay",
         buttonLink: "/"
-    }
+    },
+    {
+        name: "Galaxy S24 Ultra",
+        srcDesktop: "https://images.samsung.com/is/image/samsung/assets/vn/home/2024/HOME_Q5_MX-KV_1440X810_pc_default.jpg?$1440_810_JPG$",
+        srcMobile: "https://images.samsung.com/is/image/samsung/assets/vn/home/2024/HOME_Q5_MX-KV_720X1280_mo_default.jpg?$720_1280_JPG$",
+        title: "Galaxy S24 Ultra",
+        text: "Ưu đãi đến 5 triệu đồng. Thu cũ đổi mới hỗ trợ thêm đến 5 triệu đồng.",
+        button: "Mua ngay",
+        buttonLink: "/"
+    },
+    
 ]
 export default defineNuxtComponent({
     components: {
