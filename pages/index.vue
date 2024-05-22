@@ -14,7 +14,7 @@
         }" v-if="!isLoading">
             <IndexSlide :dataSlide="dataIndexSlider" />
 
-            <IndexOutstandingProduct />
+            <IndexOutstandingProduct :dataTab="dataIndexOutstandingProducts" />
 
             <IndexMonopolyProduct />
 
@@ -53,6 +53,7 @@ export default defineNuxtComponent({
 
         const dataIndexOutstandingProducts = (await useOutstandingProducts()).value;
         this.dataIndexOutstandingProducts = dataIndexOutstandingProducts.listOutstandingProducts.data
+        // console.log(this.dataIndexOutstandingProducts);
 
         this.isLoading = false;
     }

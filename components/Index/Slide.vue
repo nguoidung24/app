@@ -9,9 +9,9 @@
             delay: 4848
         }" :modules="modules" @slideChange="onSlideChange" class="slider_1">
                 <SwiperSlide v-for="(item, index) in dataSlide">
-                    <IndexSlideTextTop v-if="item.type == 'text-top'" :data="item" />
-                    <IndexSlideVideo v-if="item.type == 'video'" :data="item" />
-                    <IndexSlideTextLeft v-if="item.type == 'text-left'" :data="item" />
+                    <IndexSlideTextTop v-if="item.type == 'text-top'" :baseImageURL="baseImageURL" :data="item" />
+                    <IndexSlideVideo v-if="item.type == 'video'" :baseImageURL="baseImageURL" :data="item" />
+                    <IndexSlideTextLeft v-if="item.type == 'text-left'" :baseImageURL="baseImageURL" :data="item" />
                 </SwiperSlide>
             </Swiper>
         </div>
@@ -57,7 +57,12 @@ export default defineNuxtComponent({
     data() {
         return {
             slideActive: 0,
+            baseImageURL: ''
         }
+    },
+    async created(){    
+        this.baseImageURL = (await useBaseURL()).value.baseURLImage
+        console.log(this.baseImageURL);
     },
     setup() {
         return {
