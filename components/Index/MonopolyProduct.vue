@@ -75,7 +75,6 @@ export default defineNuxtComponent({
 		}
 	},
 	created(){	
-		console.log(this.dataIndexMonopolyProducts);
 		this.dataIndexMonopolyProducts.map((item,index) => {
 			this.dataSwiper.push({
                 title: item.product_name,

@@ -44,11 +44,13 @@
                         delay: 300
                     }
                 }" v-if="tabActive == index" class="hidden md:block lg:block">
-                    <span class="block text-center absolute lg:bottom-36 bottom-28 text-3xl lg:text-5xl font-bold -translate-x-2/4 left-2/4">
+                    <span
+                        class="block text-center absolute lg:bottom-36 bottom-28 text-3xl lg:text-5xl font-bold -translate-x-2/4 left-2/4">
                         {{ item?.title }}
                     </span>
-                    <span class="block text-center absolute lg:bottom-24 bottom-14 text-lg -translate-x-2/4 left-2/4">{{ item.text
-                        }}</span>
+                    <span class="block text-center absolute lg:bottom-24 bottom-14 text-lg -translate-x-2/4 left-2/4">{{
+                        item.text
+                    }}</span>
                     <NuxtLink
                         class="block text-center absolute lg:bottom-10 bottom-2 bg-black text-white px-5 py-2 rounded-3xl font-mono text-lg -translate-x-2/4 left-2/4"
                         :to="item.buttonLink">
@@ -68,7 +70,8 @@
                         delay: 300
                     }
                 }" v-if="tabActive == index" class="block md:hidden lg:hidden">
-                    <span class="block w-full px-4 text-center absolute bottom-52  text-4xl font-bold -translate-x-2/4 left-2/4">
+                    <span
+                        class="block w-full px-4 text-center absolute bottom-52  text-4xl font-bold -translate-x-2/4 left-2/4">
                         {{ item?.title }}
                     </span>
                     <span class="block text-center absolute bottom-28  text-base -translate-x-2/4 left-2/4">{{ item.text
@@ -102,7 +105,8 @@
                 }" class="lg:*:justify-center">
                     <SwiperSlide v-for="(item, index) in dataSlide" :key="index" class="text-center">
                         <button @click="slideTo(index)"
-                            :class="(tabActive == index ? 'border-b-2 border-black' : ' hover:border-b-2  hover:text-gray-500 ') + '  text-center font-semibold px-2 pb-1'" style="background-color: #f4f4f4;">{{
+                            :class="(tabActive == index ? 'border-b-2 border-black' : ' hover:border-b-2  hover:text-gray-500 ') + '  text-center font-semibold px-2 pb-1'"
+                            style="background-color: #f4f4f4;">{{
                                 item?.name }}</button>
                     </SwiperSlide>
                 </Swiper>
@@ -117,58 +121,34 @@ import { Navigation } from 'swiper/modules';
 import "swiper/css"
 import 'swiper/css/navigation';
 
-const dataSlide = [
-    
-    {
-        name: "Galaxy S24 | S24+",
-        srcDesktop: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/HOME_E3_MX-KV_1440x810_pc.jpg?$1440_810_JPG$",
-        srcMobile: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/HOME_E3_MX-KV_720x1280_mo.jpg?$720_1280_JPG$",
-        title: "Galaxy S24 Ultra",
-        text: "Ưu đãi đến 5 triệu đồng. Thu cũ đổi mới hỗ trợ thêm đến 5 triệu đồng.",
-        button: "Mua ngay",
-        buttonLink: "/"
-    },
-    {
-        name: "Galaxy Z Flip5",
-        srcDesktop: "https://images.samsung.com/is/image/samsung/assets/vn/home/2024/HOME_B5_MX-KV_1440X810_pc_default.jpg?$1440_810_JPG$",
-        srcMobile: "https://images.samsung.com/is/image/samsung/assets/vn/home/2024/HOME_B5_MX-KV_720X1280_mo_default.jpg?$720_1280_JPG$",
-        title: "Galaxy S24 Ultra",
-        text: "Ưu đãi đến 5 triệu đồng. Thu cũ đổi mới hỗ trợ thêm đến 5 triệu đồng.",
-        button: "Mua ngay",
-        buttonLink: "/"
-    },
-    {
-        name: "Galaxy Z Fold5",
-        srcDesktop: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/HOME_E1E2_MX-KV_1440x810_pc.jpg?$1440_810_JPG$",
-        srcMobile: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/HOME_E1E2_MX-KV_720x1280_mo.jpg?$720_1280_JPG$",
-        title: "Galaxy S24 Ultra",
-        text: "Ưu đãi đến 5 triệu đồng. Thu cũ đổi mới hỗ trợ thêm đến 5 triệu đồng.",
-        button: "Mua ngay",
-        buttonLink: "/"
-    },
-    {
-        name: "Galaxy S24 Ultra",
-        srcDesktop: "https://images.samsung.com/is/image/samsung/assets/vn/home/2024/HOME_Q5_MX-KV_1440X810_pc_default.jpg?$1440_810_JPG$",
-        srcMobile: "https://images.samsung.com/is/image/samsung/assets/vn/home/2024/HOME_Q5_MX-KV_720X1280_mo_default.jpg?$720_1280_JPG$",
-        title: "Galaxy S24 Ultra",
-        text: "Ưu đãi đến 5 triệu đồng. Thu cũ đổi mới hỗ trợ thêm đến 5 triệu đồng.",
-        button: "Mua ngay",
-        buttonLink: "/"
-    },
-    
-]
 export default defineNuxtComponent({
     components: {
         Swiper,
         SwiperSlide
     },
-
+    props: ['dataBigSlider'],
     data() {
         return {
             slideActive: 0,
             tabActive: 0,
-            dataSlide: dataSlide
+            dataSlide: [],
+            baseImageURL: '',
         }
+    },
+    async created() {
+        this.baseImageURL = (await useBaseURL()).value.baseURLImage
+
+        this.dataBigSlider.map((item, index) => {
+            this.dataSlide.push({
+                name: item.title,
+                srcDesktop:  this.baseImageURL + item.image.split('$tach_ra$')[0],
+                srcMobile:  this.baseImageURL + item.image.split('$tach_ra$')[1],
+                title:item.subtitle,
+                text: item.text,
+                button: item.button,
+                buttonLink: item.button_link
+            })
+        })
     },
     setup() {
         return {
@@ -194,3 +174,32 @@ export default defineNuxtComponent({
     }
 }
 </style>
+
+<!-- 
+// {
+    //     name: "Galaxy S24 | S24+",
+    //     srcDesktop: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/HOME_E3_MX-KV_1440x810_pc.jpg?$1440_810_JPG$",
+    //     srcMobile: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/HOME_E3_MX-KV_720x1280_mo.jpg?$720_1280_JPG$",
+    //     title: "Galaxy S24 Ultra",
+    //     text: "Ưu đãi đến 5 triệu đồng. Thu cũ đổi mới hỗ trợ thêm đến 5 triệu đồng.",
+    //     button: "Mua ngay",
+    //     buttonLink: "/"
+    // },
+    // {
+    //     name: "Galaxy Z Flip5",
+    //     srcDesktop: "https://images.samsung.com/is/image/samsung/assets/vn/home/2024/HOME_B5_MX-KV_1440X810_pc_default.jpg?$1440_810_JPG$",
+    //     srcMobile: "https://images.samsung.com/is/image/samsung/assets/vn/home/2024/HOME_B5_MX-KV_720X1280_mo_default.jpg?$720_1280_JPG$",
+    //     title: "Galaxy S24 Ultra",
+    //     text: "Ưu đãi đến 5 triệu đồng. Thu cũ đổi mới hỗ trợ thêm đến 5 triệu đồng.",
+    //     button: "Mua ngay",
+    //     buttonLink: "/"
+    // },
+    // {
+    //     name: "Galaxy Z Fold5",
+    //     srcDesktop: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/HOME_E1E2_MX-KV_1440x810_pc.jpg?$1440_810_JPG$",
+    //     srcMobile: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/HOME_E1E2_MX-KV_720x1280_mo.jpg?$720_1280_JPG$",
+    //     title: "Galaxy S24 Ultra",
+    //     text: "Ưu đãi đến 5 triệu đồng. Thu cũ đổi mới hỗ trợ thêm đến 5 triệu đồng.",
+    //     button: "Mua ngay",
+    //     buttonLink: "/"
+    // }, -->
