@@ -13,7 +13,7 @@
                 </button>
             </div>
             <video autoplay muted loop name="media">
-                <source :src="data?.image?.split('$tach_ra$')[0]" type="video/webm">
+                <source :src="baseImageURL + data?.image?.split('$tach_ra$')[0]" type="video/webm">
             </video>
 
         </div>
@@ -31,16 +31,16 @@
                 </button>
             </div>
             <video autoplay muted loop name="media">
-                <source :src="data?.image?.split('$tach_ra$')[1]" type="video/webm">
+                <source :src="baseImageURL + data?.image?.split('$tach_ra$')[1]" type="video/webm">
             </video>
         </div>
     </div>
 </template>
 <script>
 export default defineNuxtComponent({
-    props: ['data'],
+    props: ['data','baseImageURL'],
     created() {
-
+        console.log(this.baseImageURL);
     },
 
 })

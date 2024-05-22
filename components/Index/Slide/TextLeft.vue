@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="baseImageURL && data">
         <!-- ================================= DESKTOP ========================================= -->
         <div class="relative justify-center --- lg:flex md:flex hidden">
             <div class="absolute top-2/4 lg:left-16 left-5 -translate-y-2/4 z-50 text-left lg:max-w-80 max-w-56">
@@ -14,7 +14,7 @@
                 </button>
             </div>
             <figure>
-                <img :src="data?.image?.split('$tach_ra$')[0]" alt="">
+                <img :src="baseImageURL + data?.image?.split('$tach_ra$')[0]" alt="">
             </figure>
         </div>
         <!-- ================================= MOBILE ========================================= -->
@@ -33,16 +33,16 @@
 
             </div>
             <figure class="w-full">
-                <img class="w-full" :src="data?.image?.split('$tach_ra$')[1]" alt="">
+                <img class="w-full" :src="baseImageURL + data?.image?.split('$tach_ra$')[1]" alt="">
             </figure>
         </div>
     </div>
 </template>
 <script>
 export default defineNuxtComponent({
-    props: ['data'],
+    props: ['data','baseImageURL'],
     created() {
-
+        console.log(this.baseImageURL);
     },
 
 })
