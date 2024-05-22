@@ -69,7 +69,7 @@ export default {
                             <v-icon name="fa-user" scale="1.1"  />
                         </NuxtLink>
                     </p>
-                    <button class="lg:hidden" @click="onMenuToggle(this)">
+                    <button class="lg:hidden md:hidden" @click="onMenuToggle(this)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor"
                             class="bi bi-list" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
