@@ -11,14 +11,14 @@
                         spaceBetween: 0,
                     },
                     '640': {
-                        slidesPerView: 5,
-                        spaceBetween: 10,
+                        slidesPerView: 4,
+                        spaceBetween: 5,
                     },
                     '1024': {
-                        slidesPerView: 8,
-                        spaceBetween: 10,
+                        slidesPerView: 9,
+                        spaceBetween: 5,
                     },
-                }" class="lg:*:justify-center">
+                }" class="Outstanding *:lg:justify-center" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
                     <SwiperSlide v-for="(item, index) in dataTab" :key="index">
                         <button @click="slideTo(index)"
                             :class="tabActive == index ? 'border-b-2 border-black' : ' hover:border-b-2  hover:text-gray-500'">{{
@@ -55,10 +55,10 @@
                             </p>
                         </figure>
                     </div>
-                    <div class='  rounded-3xl grid grid-cols-2 gap-3 grid-rows-2'>
+                    <div class='rounded-3xl grid grid-cols-2 gap-3 grid-rows-2'>
                         <div v-for="(value, key) in item?.small_image?.split('$tach_ra$')" :key="key"
                             class="w-full h-full rounded-3xl  overflow-hidden">
-                            <figure class="relative ">
+                            <figure class="relative">
                                 <img :src="value" alt="">
                                 <div class="w-full h-full peer/a absolute top-0 left-0">
                                 </div>
@@ -118,11 +118,10 @@ export default defineNuxtComponent({
 <style>
 @media (min-width: 0px) {
 
-    /* các CSS hiệu lực khi màn hình từ 1200px trở đi*/
-    .swiper-button-prev::after,
-    .swiper-button-next::after {
+    .Outstanding .swiper-button-prev::after,
+    .Outstanding .swiper-button-next::after {
         color: rgb(54, 52, 52) !important;
-        font-size: 15px !important;
+        font-size: 10px !important;
     }
 }
 </style>

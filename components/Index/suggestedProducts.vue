@@ -5,7 +5,7 @@
             Gợi ý dành cho bạn
         </p>
 
-        <div class="grid lg:grid-cols-5 grid-cols-2 gap-x-5 lg:px-0 px-3">
+        <div class="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-x-5 lg:px-0 px-3">
             <div v-for="(item, index) in new Array(8).fill(0) " key="index">
                 <div class="mt-5" v-motion :initial="{
                     opacity: 0,
