@@ -50,7 +50,7 @@
                     </span>
                     <span class="block text-center absolute lg:bottom-24 bottom-14 text-lg -translate-x-2/4 left-2/4">{{
                         item.text
-                    }}</span>
+                        }}</span>
                     <NuxtLink
                         class="block text-center absolute lg:bottom-10 bottom-2 bg-black text-white px-5 py-2 rounded-3xl font-mono text-lg -translate-x-2/4 left-2/4"
                         :to="item.buttonLink">
@@ -138,12 +138,12 @@ export default defineNuxtComponent({
     async created() {
         this.baseImageURL = (await useBaseURL()).value.baseURLImage
 
-        this.dataBigSlider.map((item, index) => {
+        await this.dataBigSlider.map((item, index) => {
             this.dataSlide.push({
                 name: item.title,
-                srcDesktop:  this.baseImageURL + item.image.split('$tach_ra$')[0],
-                srcMobile:  this.baseImageURL + item.image.split('$tach_ra$')[1],
-                title:item.subtitle,
+                srcDesktop: this.baseImageURL + item.image.split('$tach_ra$')[0],
+                srcMobile: this.baseImageURL + item.image.split('$tach_ra$')[1],
+                title: item.subtitle,
                 text: item.text,
                 button: item.button,
                 buttonLink: item.button_link

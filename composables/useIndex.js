@@ -59,3 +59,32 @@ export const useMonopolyProducts = async () => {
 
     return useState('listMonopolyProducts', () => webData)
 }
+
+
+
+export const useSuggestedProducts = async () => {
+    const BASE_URL = (await (useBaseURL())).value.baseURL
+    const websiteStore = useWebsiteStore()
+    const { webData } = storeToRefs(websiteStore)
+    let data = null;
+
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            action: 'getProductType',
+            type: 'New'
+        })
+    }
+
+    if (websiteStore.getWebData('listSuggestedProducts') == null) {
+        await fetch(BASE_URL + 'Products', requestOptions)
+            .then((response) => response.json())
+            .then((response) => data = response);
+        websiteStore.setWebData({ key: 'listSuggestedProducts', value: data })
+    }
+
+    return useState('listSuggestedProducts', () => webData)
+}

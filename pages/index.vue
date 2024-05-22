@@ -20,7 +20,7 @@
 
             <IndexBigSlide :dataBigSlider="dataBigSlider" />
 
-            <IndexSuggestedProducts />
+            <IndexSuggestedProducts :dataSuggestedProducts="dataSuggestedProducts" header="Gợi ý dành cho bạn" />
         </div>
         <!-- ================================== END ================================== -->
 
@@ -43,7 +43,8 @@ export default defineNuxtComponent({
     data() {
         return {
             dataIndexOutstandingProducts: null,
-            dataIndexMonopolyProducts:null,
+            dataIndexMonopolyProducts: null,
+            dataSuggestedProducts: null,
             dataIndexSlider: null,
             dataBigSlider: null,
             isLoading: true,
@@ -60,6 +61,8 @@ export default defineNuxtComponent({
         const dataIndexMonopolyProducts = (await useMonopolyProducts()).value;
         this.dataIndexMonopolyProducts = dataIndexMonopolyProducts.listMonopolyProducts.data
 
+        const dataSuggestedProducts = (await useSuggestedProducts()).value;
+        this.dataSuggestedProducts = dataSuggestedProducts.listSuggestedProducts.data
 
         this.isLoading = false;
     }
