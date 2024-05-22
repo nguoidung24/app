@@ -16,7 +16,7 @@
 
             <IndexOutstandingProduct :dataTab="dataIndexOutstandingProducts" />
 
-            <IndexMonopolyProduct />
+            <IndexMonopolyProduct :dataIndexMonopolyProducts="dataIndexMonopolyProducts" />
 
             <IndexBigSlide />
 
@@ -43,6 +43,7 @@ export default defineNuxtComponent({
     data() {
         return {
             dataIndexOutstandingProducts: null,
+            dataIndexMonopolyProducts:null,
             dataIndexSlider: null,
             isLoading: true,
         }
@@ -53,7 +54,10 @@ export default defineNuxtComponent({
 
         const dataIndexOutstandingProducts = (await useOutstandingProducts()).value;
         this.dataIndexOutstandingProducts = dataIndexOutstandingProducts.listOutstandingProducts.data
-        // console.log(this.dataIndexOutstandingProducts);
+
+        const dataIndexMonopolyProducts = (await useMonopolyProducts()).value;
+        this.dataIndexMonopolyProducts = dataIndexMonopolyProducts.listMonopolyProducts.data
+        console.log('dataIndexMonopolyProducts',this.dataIndexMonopolyProducts);
 
         this.isLoading = false;
     }

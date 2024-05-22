@@ -32,3 +32,30 @@ export const useOutstandingProducts = async () => {
 
     return useState('listOutstandingProducts', () => webData)
 }
+
+export const useMonopolyProducts = async () => {
+    const BASE_URL = (await (useBaseURL())).value.baseURL
+    const websiteStore = useWebsiteStore()
+    const { webData } = storeToRefs(websiteStore)
+    let data = null;
+
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            action: 'getProductType',
+            type: 'HotSale'
+        })
+    }
+
+    if (websiteStore.getWebData('listMonopolyProducts') == null) {
+        await fetch(BASE_URL + 'Products', requestOptions)
+            .then((response) => response.json())
+            .then((response) => data = response);
+        websiteStore.setWebData({ key: 'listMonopolyProducts', value: data })
+    }
+
+    return useState('listMonopolyProducts', () => webData)
+}

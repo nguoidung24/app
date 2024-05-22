@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<p class="mt-14 px-5 lg:text-left text-center">
-			<span class="text-xl font-bold ">Đặc quyền của thegioidilac.shop</span>
+			<span class="text-xl font-bold ">Đặc quyền của samseng.shop</span>
 			<span class="text-lg  ms-3 block lg:inline-block">
 				<NuxtLink to="/"
 					class="flex hover:cursor-pointer hover:underline font-semibold text-base justify-center items-center">
@@ -37,16 +37,16 @@
 			},
 		}" :modules="modules" class="">
 				<SwiperSlide v-for="(item, index) in dataSwiper" :key="index">
-					<div class=" rounded-xl overflow-hidden shadow-lg my-8 min-h-72">
+					<div class=" rounded-xl overflow-hidden min-h-64 shadow-lg my-8">
 						<figure class="relative overflow-hidden">
-							<img class="w-full peer" :src="item.thumbnail" alt="Sunset in the mountains">
+							<img class="mx-auto h-40 peer" :src="item.thumbnail" alt="Sunset in the mountains">
 							<button
 								class="absolute font-mono lg:w-fit w-[70%] duration-300 peer-hover:bottom-3 hover:bottom-3 hover:bg-gray-700 text-sm bg-black text-white px-5 lg:text-sm text-[12.5px] rounded-2xl py-2 -bottom-full left-2/4 -translate-x-2/4">
 								{{ item.button }}
 							</button>
 						</figure>
 						<div class="px-6 py-4">
-							<div class="font-semibold text-sm mb-2">{{ item.title }}</div>
+							<div class="font-semibold text-sm mb-2">{{ item.title }} - {{ index % 2 == 0 ?  'Độc quyền tại Samseng' : 'Sản phẩm độc quyền'}}</div>
 						</div>
 					</div>
 				</SwiperSlide>
@@ -62,54 +62,28 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-const dataSwiper = [
-	{
-		title: "Galaxy S24 Ultra màu độc quyền",
-		button: "Mua ngay",
-		buttonLink: "",
-		thumbnail: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/home_exclusives_thumbnail_1_pc_280x210.jpg?$280_210_JPG$",
-	},
-	{
-		title: "Ốp lưng phiên bản nghệ sĩ Steven Wilson",
-		button: "Mua ngay",
-		buttonLink: "",
-		thumbnail: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/home_exclusives_thumbnail_2_pc_280x210.jpg?$280_210_JPG$",
-	},
-	{
-		title: "Galaxy S24+ màu độc quyền",
-		button: "Mua ngay",
-		buttonLink: "",
-		thumbnail: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/home_exclusives_thumbnail_3_pc_280x210.jpg?$280_210_JPG$",
-	},
-	{
-		title: "Ốp lưng phiên bản nghệ sĩ Ricardo Cavolo",
-		button: "Mua ngay",
-		buttonLink: "",
-		thumbnail: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/home_exclusives_thumbnail_4_pc_280x210.jpg?$280_210_JPG$",
-	},
-	{
-		title: "Galaxy S24 màu độc quyền",
-		button: "Mua ngay",
-		buttonLink: "",
-		thumbnail: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/home_exclusives_thumbnail_5_pc_280x210.jpg?$280_210_JPG$",
-	},
-	{
-		title: "Ốp lưng phiên bản nghệ sĩ Yeye Weller",
-		button: "Mua ngay",
-		buttonLink: "",
-		thumbnail: "https://images.samsung.com/is/image/samsung/assets/vn/2401/home/home_exclusives_thumbnail_6_pc_280x210.jpg?$280_210_JPG$",
-	},
-]
 
 export default defineNuxtComponent({
 	components: {
 		Swiper,
 		SwiperSlide,
 	},
+	props:['dataIndexMonopolyProducts'],
 	data() {
 		return {
-			dataSwiper: dataSwiper
+			dataSwiper: []
 		}
+	},
+	created(){	
+		console.log(this.dataIndexMonopolyProducts);
+		this.dataIndexMonopolyProducts.map((item,index) => {
+			this.dataSwiper.push({
+                title: item.product_name,
+                button: 'Xam thêm',
+                buttonLink: '',
+                thumbnail: 'http://localhost:8008/'+item.thumbnail,
+            })
+		})
 	},
 	setup() {
 		return {

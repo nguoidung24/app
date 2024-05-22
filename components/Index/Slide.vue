@@ -62,7 +62,6 @@ export default defineNuxtComponent({
     },
     async created(){    
         this.baseImageURL = (await useBaseURL()).value.baseURLImage
-        console.log(this.baseImageURL);
     },
     setup() {
         return {

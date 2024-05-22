@@ -40,7 +40,6 @@
 export default defineNuxtComponent({
     props: ['data','baseImageURL'],
     created() {
-        console.log(this.baseImageURL);
     },
 
 })

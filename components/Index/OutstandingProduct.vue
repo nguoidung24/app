@@ -99,7 +99,6 @@ export default defineNuxtComponent({
         }
     },
     created() {
-        console.log(this.dataTab);
 
     },
     setup() {
