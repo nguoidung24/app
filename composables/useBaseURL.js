@@ -4,7 +4,7 @@ export const useBaseURL = async () => {
         baseURL: "http://localhost:8008/api/",
         // baseURL:"https://admin.thegioidilac.shop/api/",
 
-        baseURLImage: "https://images.samsung.com/"
+        baseURLImage: "http://localhost:8008/"
         // baseURLImage:"https://admin.thegioidilac.shop/api/",
 
     }

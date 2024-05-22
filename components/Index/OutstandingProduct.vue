@@ -40,7 +40,7 @@
                 }" class="relative grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 p-6 gap-3 mb-2">
                     <div class='rounded-3xl text-black text-center overflow-hidden'>
                         <figure class="relative">
-                            <img :src="item?.big_image" alt="">
+                            <img :src=" baseImageURL + item?.big_image" alt="">
 
                             <div class="w-full h-full peer/a absolute top-0 left-0">
                             </div>
@@ -59,7 +59,7 @@
                         <div v-for="(value, key) in item?.small_image?.split('$tach_ra$')" :key="key"
                             class="w-full h-full rounded-3xl  overflow-hidden">
                             <figure class="relative">
-                                <img :src="value" alt="">
+                                <img :src="baseImageURL + value" alt="">
                                 <div class="w-full h-full peer/a absolute top-0 left-0">
                                 </div>
                                 <NuxtLink to="/"
@@ -101,9 +101,11 @@ export default defineNuxtComponent({
     created() {
 
     },
-    setup() {
+    async setup() {
+        const baseImageURL = (await useBaseURL()).value.baseURLImage
         return {
             modules: [Navigation],
+            baseImageURL
         };
     },
     methods: {

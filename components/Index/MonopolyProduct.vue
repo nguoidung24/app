@@ -80,13 +80,15 @@ export default defineNuxtComponent({
                 title: item.product_name,
                 button: 'Xam thêm',
                 buttonLink: '',
-                thumbnail: 'http://localhost:8008/'+item.thumbnail,
+                thumbnail: this.baseImageURL + item.thumbnail,
             })
 		})
 	},
-	setup() {
+	async setup() {
+		const baseImageURL = (await useBaseURL()).value.baseURLImage
 		return {
 			modules: [Pagination],
+			baseImageURL
 		};
 	},
 });

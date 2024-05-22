@@ -58,9 +58,10 @@
 <script>
 export default defineNuxtComponent({
     props: ['dataSuggestedProducts', 'header'],
-    data() {
+    async setup() {
+        const baseImageURL = (await useBaseURL()).value.baseURLImage
         return {
-            baseImageURL: 'http://localhost:8008/'
+            baseImageURL
         }
     },
 

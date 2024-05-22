@@ -7,7 +7,7 @@
             <img class="opacity-0 block md:hidden lg:hidden"
                 src="https://images.samsung.com/is/image/samsung/assets/vn/home/2024/HOME_B5_MX-KV_720X1280_mo_default.jpg?$720_1280_JPG$"
                 alt="">
-            <figure v-for="(item, index) in dataSlide" :key="index" class=" absolute top-0 left-0 overflow-hidden"
+            <figure v-for="(item, index) in dataSlide" :key="index" class=" absolute w-full top-0 left-0 overflow-hidden"
                 style="background-color: #f4f4f4;">
 
                 <img v-motion :initial="{
@@ -30,7 +30,7 @@
                     transition: {
                         duration: 700,
                     }
-                }" v-if="tabActive == index" :src="item.srcMobile" alt="" class="block md:hidden lg:hidden">
+                }" v-if="tabActive == index" :src="item.srcMobile" alt="" class="block mx-auto md:hidden lg:hidden">
 
 
                 <p v-motion :initial="{
