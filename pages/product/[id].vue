@@ -1,19 +1,28 @@
 <template>
-    <div class="">
+    <div class="" v-motion :initial="{
+        opacity: 0,
+        y: 100,
+    }" :enter="{
+        opacity: 1,
+        y: 0,
+    }" :leave="{
+            y: -100,
+            opacity: 0,
+        }">
         <section class="text-gray-700 body-font overflow-hidden bg-white">
             <div class="container px-5 py-24 mx-auto">
-                <div class="lg:w-4/5 mx-auto flex flex-wrap">
+                <div class="lg:w-4/5 mx-auto flex flex-wrap justify-center">
                     <div class="lg:w-2/4 ">
-                        <div class="lg:px-32 px-10 relative">
-                            <figure class="pb-24">
-                                <img alt="ecommerce" class="w-full mx-auto object-cover object-center rounded"
+                        <div class="lg:px-32 px-10 w-full relative">
+                            <figure class="pb-24 w-full">
+                                <img alt="ecommerce" class="h-80 mx-auto object-cover object-center rounded"
                                     :src="dataTab[tabActive]">
                             </figure>
                             <div class="mt-3 product absolute -bottom-0 w-full left-0">
                                 <Swiper :navigation="true" :modules="modules" :spaceBetween="10" slidesPerView="5">
                                     <SwiperSlide v-for="(item, index) in dataTab" :key="index">
                                         <button @click="slideTo(index)"
-                                            :class="(tabActive == index ? 'border border-black  ' : ' hover:border  hover:text-gray-500') + ' w-full flex justify-center'">
+                                            :class="(tabActive == index ? 'border rounded border-gray-700  ' : ' hover:border  hover:text-gray-500') + ' w-full flex justify-center'">
                                             <img class="h-20 py-2" :src="item" alt="">
                                         </button>
                                     </SwiperSlide>
@@ -27,40 +36,15 @@
                         <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">Ai Phôn Pờ Rồ Mắc</h1>
                         <div class="flex mb-4">
                             <span class="flex items-center">
-                                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
-                                    </path>
-                                </svg>
-                                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
-                                    </path>
-                                </svg>
-                                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
-                                    </path>
-                                </svg>
-                                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
-                                    </path>
-                                </svg>
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" class="w-4 h-4 text-red-500" viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
-                                    </path>
-                                </svg>
+                                <span v-for="(item, index) in [0,0,0,0,0]" :key="index" >
+                                    <svg :fill="index < 4 ? 'currentColor' : 'none'" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2" class="w-4 h-4 text-red-500"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                                        </path>
+                                    </svg>
+                                </span>
                                 <span class="text-gray-600 ml-3">4 Reviews</span>
                             </span>
                         </div>
@@ -139,16 +123,7 @@ export default defineNuxtComponent({
                 'https://admin.thegioidilac.shop/image/product/samsung.png',
                 'https://admin.thegioidilac.shop/image/product/samsung.png',
                 'https://admin.thegioidilac.shop/image/product/samsung.png',
-                'https://admin.thegioidilac.shop/image/product/samsung.png',
-                'https://admin.thegioidilac.shop/image/product/samsung.png',
-                'https://admin.thegioidilac.shop/image/product/samsung.png',
-                'https://admin.thegioidilac.shop/image/product/samsung.png',
-                'https://admin.thegioidilac.shop/image/product/samsung.png',
-                'https://admin.thegioidilac.shop/image/product/samsung.png',
-                'https://admin.thegioidilac.shop/image/product/samsung.png',
-                'https://admin.thegioidilac.shop/image/product/samsung.png',
-                'https://admin.thegioidilac.shop/image/product/samsung.png',
-                'https://admin.thegioidilac.shop/image/product/samsung.png',
+               
             ],
             tabActive: 0
         }
