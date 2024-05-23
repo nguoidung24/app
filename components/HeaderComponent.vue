@@ -22,7 +22,7 @@
                         </li>
                         <li
                             class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                            <NuxtLink to="/user">Faculty</NuxtLink>
+                            <NuxtLink to="/products">Sản phẩm</NuxtLink>
 
                         </li>
                         <li
@@ -32,7 +32,7 @@
                         </li>
                         <li
                             class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                            <NuxtLink to="/product">Về chúng tôi</NuxtLink>
+                            <NuxtLink to="/products">Về chúng tôi</NuxtLink>
                         </li>
                         <li
                             class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
@@ -56,7 +56,7 @@
                                 9+
                             </span>
                         </NuxtLink>
-                        <NuxtLink to="/products">
+                        <NuxtLink to="/user">
                             <v-icon name="fa-user" scale="1.1" />
                         </NuxtLink>
                     </p>

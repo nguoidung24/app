@@ -44,9 +44,9 @@
                             </p>
                         </div>
                         <div class="px-3 text-center pb-4">
-                            <button class="font-mono bg-black text-white w-[68%] py-1 rounded-3xl">
+                            <NuxtLink :to="`/product/${item.product_id}`" class="font-mono inline-block bg-black text-white w-[68%] py-1 rounded-3xl">
                                 Xem ngay
-                            </button>
+                            </NuxtLink to="">
                         </div>
                     </div>
                 </div>
