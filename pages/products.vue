@@ -197,12 +197,12 @@
                 </div>
                 <div class=" flex justify-center gap-x-3 mt-2">
                   <button :disabled="page == 1"
-                    class="border disabled:bg-gray-100 disabled:text-gray-500 px-3 bg-gray-200 font-medium py-2 rounded-xl"
+                    class="border disabled:bg-gray-50 disabled:text-gray-400 px-3 bg-gray-200 font-medium py-2 rounded-xl"
                     @click="getData(1)">
                     Đầu tiên
                   </button>
                   <button :disabled="page == 1"
-                    class="border disabled:bg-gray-100 disabled:text-gray-500 px-3 bg-gray-200 font-medium py-2 rounded-xl"
+                    class="border disabled:bg-gray-50 disabled:text-gray-400 px-3 bg-gray-200 font-medium py-2 rounded-xl"
                     @click="getData(Number(page) - 1)">
                     Trước
                   </button>
@@ -212,12 +212,12 @@
                   </button>
 
                   <button :disabled="page == totalPage"
-                    class="border disabled:bg-gray-100 disabled:text-gray-500 px-3 bg-gray-200 font-medium py-2 rounded-xl"
+                    class="border disabled:bg-gray-50 disabled:text-gray-400 px-3 bg-gray-200 font-medium py-2 rounded-xl"
                     @click="getData(Number(page) + 1)">
                     Sau
                   </button>
                   <button :disabled="page == totalPage"
-                    class="border disabled:bg-gray-100 disabled:text-gray-500 px-3 bg-gray-200 font-medium py-2 rounded-xl"
+                    class="border disabled:bg-gray-50 disabled:text-gray-400 px-3 bg-gray-200 font-medium py-2 rounded-xl"
                     @click="getData(totalPage)">
                     Cuối cùng
                   </button>

@@ -31,7 +31,7 @@ export const useProducts = async (listFilter, page = 1) => {
         body: JSON.stringify({
             action: 'listProducts',
             page: page,
-            limit: 5,
+            limit: 8,
             ...listFilter
         })
     }
