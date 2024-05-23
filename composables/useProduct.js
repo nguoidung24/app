@@ -20,7 +20,7 @@ export const useProduct = async (id) => {
     return useState(`product_${id}`, () => data)
 }
 
-export const useProducts = async (listFilter) => {
+export const useProducts = async (listFilter, page = 1) => {
     const BASE_URL = (await (useBaseURL())).value.baseURL
     let data = null;
     const requestOptions = {
@@ -30,6 +30,8 @@ export const useProducts = async (listFilter) => {
         },
         body: JSON.stringify({
             action: 'listProducts',
+            page: page,
+            limit: 5,
             ...listFilter
         })
     }

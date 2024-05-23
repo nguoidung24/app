@@ -5,7 +5,8 @@
             {{ header }}
         </p>
 
-        <div :class="`grid lg:grid-cols-${itemsRow ? itemsRow : '5'} md:grid-cols-3 grid-cols-2 gap-x-5 gap-y-4 lg:px-0 px-3`">
+        <div
+            :class="`grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-x-5 gap-y-4 lg:px-0 px-3`">
             <div v-for="(item, index) in dataSuggestedProducts" key="index">
                 <div class="mt-5 h-full" v-motion :initial="{
                     opacity: 0,
@@ -59,11 +60,11 @@
 </template>
 <script>
 export default defineNuxtComponent({
-    props: ['dataSuggestedProducts', 'header', 'itemsRow'],
+    props: ['dataSuggestedProducts', 'header','itemsRow'],
     async setup() {
         const baseImageURL = (await useBaseURL()).value.baseURLImage
         return {
-            baseImageURL
+            baseImageURL,
         }
     },
 

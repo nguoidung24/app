@@ -2,10 +2,10 @@
     <div>
         <div class='relative'>
             <img class="opacity-0 hidden md:block lg:block"
-                src="https://images.samsung.com/is/image/samsung/assets/vn/home/2024/HOME_Q5_MX-KV_1440X810_pc_default.jpg?$1440_810_JPG$"
+                src="/4desktop.png"
                 alt="">
             <img class="opacity-0 block md:hidden lg:hidden"
-                src="https://images.samsung.com/is/image/samsung/assets/vn/home/2024/HOME_B5_MX-KV_720X1280_mo_default.jpg?$720_1280_JPG$"
+                src="/4mobile.png"
                 alt="">
             <figure v-for="(item, index) in dataSlide" :key="index" class=" absolute w-full top-0 left-0 overflow-hidden"
                 style="background-color: #f4f4f4;">

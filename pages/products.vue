@@ -65,6 +65,7 @@
 
             <!-- Product grid -->
             <div class="mt-6 lg:border-l lg:ps-5  lg:col-span-4 lg:mt-0 xl:col-span-5 ">
+              <!-- ================================ DANH MUC ================================== -->
               <div v-if="displayCategory">
                 <div class="lg:col-span-full">
 
@@ -183,12 +184,50 @@
               <div class="mt-3" v-if="!isLoading && listProducts?.length == 0">
                 Không có sản phẩm nào hợp lệ
               </div>
+              <div class="mt-20" v-if="!isLoading && listProducts?.length != 0">
+                <div class="text-center relative">
+                  Trang {{ page }} / {{ totalPage }}
+                  <div v-if="showChangePage" class="absolute flex -top-[191%] left-2/4 -translate-x-2/4">
+                    <input @change="(e) => handleChangePageValue(e)" type="number" class="pe-12 w-32 rounded-xl">
+                    <button @click="getData(selectPage)"
+                      class="absolute border-gray-400 border-l ps-1 right-2 top-2/4 -translate-y-2/4">
+                      xem
+                    </button>
+                  </div>
+                </div>
+                <div class=" flex justify-center gap-x-3 mt-2">
+                  <button :disabled="page == 1"
+                    class="border disabled:bg-gray-100 disabled:text-gray-500 px-3 bg-gray-200 font-medium py-2 rounded-xl"
+                    @click="getData(1)">
+                    Đầu tiên
+                  </button>
+                  <button :disabled="page == 1"
+                    class="border disabled:bg-gray-100 disabled:text-gray-500 px-3 bg-gray-200 font-medium py-2 rounded-xl"
+                    @click="getData(Number(page) - 1)">
+                    Trước
+                  </button>
+
+                  <button class="border px-3 bg-gray-200 font-medium py-2 rounded-xl" @click="displayChangePage()">
+                    <v-icon name="gi-archive-research" scale="1.3"></v-icon>
+                  </button>
+
+                  <button :disabled="page == totalPage"
+                    class="border disabled:bg-gray-100 disabled:text-gray-500 px-3 bg-gray-200 font-medium py-2 rounded-xl"
+                    @click="getData(Number(page) + 1)">
+                    Sau
+                  </button>
+                  <button :disabled="page == totalPage"
+                    class="border disabled:bg-gray-100 disabled:text-gray-500 px-3 bg-gray-200 font-medium py-2 rounded-xl"
+                    @click="getData(totalPage)">
+                    Cuối cùng
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </main>
       </div>
     </div>
-
   </div>
 </template>
 <script lang="js">
@@ -197,10 +236,16 @@ export default defineNuxtComponent({
     return {
       displayCategory: true,
       displayFilter: false,
+      showChangePage: false,
       listProducts: null,
       isLoading: true,
+      totalPage: null,
+      selectPage: null,
+      nextPage: null,
+      prePage: null,
       filters: {
-      }
+      },
+      page: 1,
     }
   },
   async created() {
@@ -226,14 +271,40 @@ export default defineNuxtComponent({
       await this.getData();
       this.isLoading = false;
     },
-    async getData() {
+    async getData(page = 1) {
+      if (!Number(page)) {
+        return alert('Page not found');
+      }
       this.isLoading = true;
       this.listProducts = null;
-      const listProducts = await useProducts(this.filters);
+      const listProducts = await useProducts(this.filters, page);
       this.listProducts = await listProducts?.data;
-      this.isLoading = false;
-    }
+      this.totalPage = listProducts.totalPage;
+      this.nextPage = listProducts.nextPage;
+      this.prePage = listProducts.prePage;
+      this.page = listProducts.page;
 
+      this.isLoading = false;
+      this.showChangePage = false;
+    },
+    displayChangePage() {
+      this.showChangePage = !this.showChangePage;
+    },
+    handleChangePageValue(e) {
+      const selected = e.target.value;
+      if (!Number(selected)) {
+        return this.selectPage = 'Fail';
+      }
+      if (!this.isInteger(selected)) {
+        return this.selectPage = 'Fail';
+      }
+      if (Number(selected) < 1 || Number(selected) > this.totalPage)
+        return this.selectPage = 'Fail';
+      this.selectPage = e.target.value;
+    },
+    isInteger(value) {
+      return (Math.round(Number(value)) - value) == 0;
+    }
   }
 })
 </script>
