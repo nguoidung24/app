@@ -3,11 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "run build",
-    "dev": "run dev",
-    "generate": "run generate",
-    "preview": "run preview",
-    "postinstall": "run prepare"
+    "build": "npm run build",
+    "dev": "npm run dev",
+    "generate": "npm run generate",
+    "preview": "npm run preview",
+    "postinstall": "npm run prepare"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
