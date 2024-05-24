@@ -32,7 +32,7 @@
             <p class="mt-4 text-base text-gray-500">Danh mục "Sản phẩm"</p>
           </div> -->
           <h2 class="text-center pb-6 text-xl font-medium">
-            Danh Mục "SamSung"
+            {{title}}
           </h2>
           <div class="pt-6 border-t lg:grid lg:grid-cols-5 lg:gap-x-8 xl:grid-cols-6">
             <aside>
@@ -66,106 +66,9 @@
             <!-- Product grid -->
             <div class="mt-6 lg:border-l lg:ps-5  lg:col-span-4 lg:mt-0 xl:col-span-5 ">
               <!-- ================================ DANH MUC ================================== -->
-              <div v-if="displayCategory">
-                <div class="lg:col-span-full">
+              <Categories :filters="filters" :handleChangeFilters="handleChangeFilters" v-if="displayCategory" />
 
-                  <div class="grid grid-cols-3 md:grid-cols-7 gap-x-4 gap-y-4 px-4">
-                    <p
-                      class="hover:cursor-pointer border rounded-lg py-2 flex items-center justify-center font-lg gap-x-2">
-                      <svg fill="#000000" viewBox="0 0 32 32" width="20" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                          <title>border-all</title>
-                          <path
-                            d="M29 2.25h-26c-0.414 0-0.75 0.336-0.75 0.75v0 26c0 0.414 0.336 0.75 0.75 0.75h26c0.414-0 0.75-0.336 0.75-0.75v0-26c-0-0.414-0.336-0.75-0.75-0.75v0zM28.25 15.25h-11.5v-11.5h11.5zM15.25 3.75v11.5h-11.5v-11.5zM3.75 16.75h11.5v11.5h-11.5zM16.75 28.25v-11.5h11.5v11.5z">
-                          </path>
-                        </g>
-                      </svg> <span>
-                        Tất cả
-                      </span>
-                    </p>
-                    <p
-                      class="hover:cursor-pointer border rounded-lg py-2 flex items-center justify-center font-lg gap-x-2">
-                      <img src="https://admin.thegioidilac.shop/image/category/default.png" alt=""
-                        class="size-6 ms-auto"> <span class="me-auto">
-                        SamSung
-                      </span>
-                    </p>
-                    <p
-                      class="hover:cursor-pointer border rounded-lg py-2 flex items-center justify-center font-lg gap-x-2">
-                      <img src="https://admin.thegioidilac.shop/image/category/apple.png" alt="" class="size-6 ms-auto">
-                      <span class="me-auto">
-                        Apple
-                      </span>
-                    </p>
-                    <p
-                      class="hover:cursor-pointer border rounded-lg py-2 flex items-center justify-center font-lg gap-x-2">
-                      <img src="https://admin.thegioidilac.shop/image/category/nokia.png" alt="" class="size-6 ms-auto">
-                      <span class="me-auto">
-                        Nokia
-                      </span>
-                    </p>
-                    <p
-                      class="hover:cursor-pointer border rounded-lg py-2 flex items-center justify-center font-lg gap-x-2">
-                      <img src="https://admin.thegioidilac.shop/image/category/oppo.png" alt="" class="size-6 ms-auto">
-                      <span class="me-auto">
-                        Oppo
-                      </span>
-                    </p>
-                    <p
-                      class="hover:cursor-pointer border rounded-lg py-2 flex items-center justify-center font-lg gap-x-2">
-                      <img src="https://admin.thegioidilac.shop/image/category/xiaomi.png" alt=""
-                        class="size-6 ms-auto"> <span class="me-auto">
-                        Xiaomi
-                      </span>
-                    </p>
-                    <p
-                      class="hover:cursor-pointer border rounded-lg py-2 flex items-center justify-center font-lg gap-x-2">
-                      <img src="https://admin.thegioidilac.shop/image/category/blackshark.png" alt=""
-                        class="size-6 ms-auto"> <span class="me-auto">
-                        BlackShark
-                      </span>
-                    </p>
-                    <p
-                      class="hover:cursor-pointer border rounded-lg py-2 flex items-center justify-center font-lg gap-x-2">
-                      <img src="https://admin.thegioidilac.shop/image\/category\/1714659927.png" alt=""
-                        class="size-6 ms-auto"> <span class="me-auto">
-                        Nokia
-                      </span>
-                    </p>
-                    <p
-                      class="hover:cursor-pointer border rounded-lg py-2 flex items-center justify-center font-lg gap-x-2">
-                      <img src="https://admin.thegioidilac.shop/image\/category\/1714661163.png" alt=""
-                        class="size-6 ms-auto"> <span class="me-auto">
-                        Apple
-                      </span>
-                    </p>
-                    <p
-                      class="hover:cursor-pointer border rounded-lg py-2 flex items-center justify-center font-lg gap-x-2">
-                      <img src="https://admin.thegioidilac.shop/image\/category\/1714661217.png" alt=""
-                        class="size-6 ms-auto"> <span class="me-auto">
-                        SamSung
-                      </span>
-                    </p>
-                    <p
-                      class="hover:cursor-pointer border rounded-lg py-2 flex items-center justify-center font-lg gap-x-2">
-                      <img src="https://admin.thegioidilac.shop/image\/category\/1714661276.png" alt=""
-                        class="size-6 ms-auto"> <span class="me-auto">
-                        Lumia
-                      </span>
-                    </p>
-                    <p
-                      class="hover:cursor-pointer border rounded-lg py-2 flex items-center justify-center font-lg gap-x-2">
-                      <img src="https://admin.thegioidilac.shop/image\/category\/1714661312.png" alt=""
-                        class="size-6 ms-auto"> <span class="me-auto">
-                        SamSung
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
+
               <div v-if="!displayCategory">
                 <button type="button" class=" lg:inline-flex ms-5 items-center hidden" @click="handleDisplayCategory()">
                   <span class="text-sm font-medium text-gray-700">
@@ -234,13 +137,14 @@
 export default defineNuxtComponent({
   data() {
     return {
+      title:"Tất cả sản phẩm",
+      showChangePage: false,
       displayCategory: true,
       displayFilter: false,
-      showChangePage: false,
       listProducts: null,
+      selectPage: null,
       isLoading: true,
       totalPage: null,
-      selectPage: null,
       nextPage: null,
       prePage: null,
       filters: {
@@ -248,7 +152,27 @@ export default defineNuxtComponent({
       page: 1,
     }
   },
+  watch: {
+    '$route.query': {
+      handler(newQuery, oldQuery) {
+        if(newQuery?.search){
+          this.handleChangeFilters('keywords', newQuery.search)
+          this.title = `Tìm kiếm: "${newQuery.search}"`
+        }else{
+          this.handleChangeFilters('keywords', 0)
+          this.title = `Tất cả sản phẩm`
+        }
+      },
+      immediate: true, // Gọi handler ngay lập tức với giá trị hiện tại
+      deep: true // Theo dõi sự thay đổi sâu bên trong object query
+    }
+  },
+
   async created() {
+    if (this.$route.query?.search) {
+      this.handleChangeFilters('keywords', this.$route.query?.search)
+      this.title = `Tìm kiếm: "${this.$route.query?.search}"`;
+    }
     await this.getData()
     this.isLoading = false;
     // const a = useState()._object['$sdataBaseURL']
