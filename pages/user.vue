@@ -13,10 +13,14 @@
                                 <h1 class="text-xl font-bold">John Doe</h1>
                                 <p class="text-gray-700">Software Developer</p>
                                 <div class="mt-6 flex flex-wrap gap-4 justify-center">
-                                    <a href="#"
-                                        class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Contact</a>
-                                    <a href="#"
-                                        class="bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded">Resume</a>
+                                    <button @click="handleLogout()"
+                                        class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">
+                                        Đăng xuất
+                                    </button>
+                                    <!-- <a href="#"
+                                        class="bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded">
+                                        Đổi mật khẩu
+                                    </a> -->
                                 </div>
                             </div>
                             <hr class="my-6 border-t border-gray-300">
@@ -34,7 +38,7 @@
                     </div>
                     <div class="col-span-4 sm:col-span-9">
                         <div class="bg-white shadow rounded-lg p-6">
-                            <IndexSuggestedProducts/>
+                            <IndexSuggestedProducts />
                         </div>
                     </div>
                 </div>
@@ -42,3 +46,20 @@
         </div>
     </div>
 </template>
+<script lang="js">
+import Cookies from "js-cookie";
+export default defineNuxtComponent({
+    created() {
+
+        const isLogin = Cookies.get('isLogin');
+        console.log(isLogin);
+    },
+    methods: {
+        handleLogout() {
+            Cookies.remove("isLogin");
+            Cookies.remove("SSID");
+            this.$router.push("/login");
+        }
+    },
+})
+</script>
