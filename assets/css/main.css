@@ -7,9 +7,11 @@
   all: unset;
   text-align: justify;
 }
+
 .no-tailwind img {
   width: 100%;
 }
+
 .no-tailwind table {
   width: 100%;
 }
@@ -45,6 +47,7 @@
   font-weight: bold;
   margin: 0.67em 0;
 }
+
 .no-tailwind ol {
   display: block;
   list-style-type: decimal;
@@ -54,44 +57,88 @@
   margin-right: 0;
   padding-left: 40px;
 }
+
 .no-tailwind sup {
   vertical-align: super;
   font-size: smaller;
 }
+
 .no-tailwind table {
   display: table;
   border-collapse: separate;
   border-spacing: 2px;
   border-color: gray;
 }
+
 .no-tailwind tbody {
   display: table-row-group;
   vertical-align: middle;
   border-color: inherit;
 }
+
 .no-tailwind td {
   display: table-cell;
   vertical-align: inherit;
 }
+
 .no-tailwind th {
   display: table-cell;
   vertical-align: inherit;
   font-weight: bold;
   text-align: center;
 }
+
 .no-tailwind thead {
   display: table-header-group;
   vertical-align: middle;
   border-color: inherit;
 }
+
 .no-tailwind tr {
   display: table-row;
   vertical-align: inherit;
   border-color: inherit;
 }
+
 .no-tailwind u {
   text-decoration: underline;
 }
+
 .no-tailwind i {
   font-style: italic;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  overflow-x: auto !important;
+}
+
+body::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color:  rgb(46, 29, 109);
+  cursor: grabbing;
+}
+
+body::-webkit-scrollbar-track {
+  /* background-color: transparent !important; */
+  background-color: rgb(209, 201, 255) !important;
+
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(46, 29, 109);
+  border-radius: 5px !important;
 }

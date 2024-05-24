@@ -16,27 +16,9 @@
                 <div
                     class="navLinks duration-500 absolute md:static md:w-auto w-full md:h-auto h-[85vh] bg-white flex md:items-center gap-[1.5vw] top-[100%] left-[-100%] px-5 md:py-0 py-5 ">
                     <ul class="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-8">
-                        <li
+                        <li v-for="(item, index) in dataMenu" :key="index"
                             class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                            <NuxtLink to="/">Trang chủ</NuxtLink>
-                        </li>
-                        <li
-                            class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                            <NuxtLink to="/products">Sản phẩm</NuxtLink>
-
-                        </li>
-                        <li
-                            class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                            <NuxtLink to="/test">Courses</NuxtLink>
-
-                        </li>
-                        <li
-                            class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                            <NuxtLink to="/products">Về chúng tôi</NuxtLink>
-                        </li>
-                        <li
-                            class="relative max-w-fit pr-3 md:pr-0 py-1 after:bg-gradient-to-r from-[#2b68e0] to-[#e710ea]  after:absolute after:h-1 after:w-0 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300">
-                            <a href="#">Liên hệ chúng tôi</a>
+                            <a @click="handleClickMenu(item.link)" class="hover:cursor-pointer">{{ item.text }}</a>
                         </li>
                     </ul>
                 </div>
@@ -87,7 +69,8 @@
                 },
             }">
                 <div class="relative">
-                    <p class="text-center text-white font-semibold text-2xl w-full absolute -top-full left-2/4 -translate-x-2/4">
+                    <p
+                        class="text-center text-white font-semibold text-2xl w-full absolute -top-full left-2/4 -translate-x-2/4">
                         Samseng Sẽ Giúp Bạn Tìm Kiếm
                     </p>
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -112,18 +95,36 @@
 </template>
 
 <script lang="js">
-
+const dataMenu = [
+    {
+        text: "Trang chủ",
+        link: "/",
+    },
+    {
+        text: "Sản phẩm",
+        link: "/products",
+    },
+    {
+        text: "Về chúng tôi",
+        link: "/",
+    },
+    {
+        text: "Liên hệ với chúng tôi",
+        link: "/",
+    }
+]
 export default defineNuxtComponent({
     data() {
         return {
             isSearch: false,
             searchValue: "",
+            dataMenu
         }
     },
     methods: {
         onMenuToggle(e) {
-            const navlinks = document.querySelector(".navLinks");
             // e.name = e.name === "menu" ? "close" : "menu";
+            const navlinks = document.querySelector(".navLinks");
             navlinks.classList.toggle("left-[0%]");
         },
         goToHome() {
@@ -132,8 +133,12 @@ export default defineNuxtComponent({
         handleSearch() {
             this.isSearch = !this.isSearch;
         },
-        handleToSearch(){
+        handleToSearch() {
             this.$router.push(`/products?search=${this.searchValue}`);
+        },
+        handleClickMenu(link) {
+            this.onMenuToggle();
+            this.$router.push(link);
         }
 
     },
