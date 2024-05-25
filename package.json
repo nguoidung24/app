@@ -3,11 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm run build",
-    "dev": "npm run dev",
-    "generate": "npm run generate",
-    "preview": "npm run preview",
-    "postinstall": "npm run prepare"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
